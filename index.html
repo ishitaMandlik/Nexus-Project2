@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Website </title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/48d6c73121.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="header">
+    <div class="container">
+
+      <nav>
+        <img src="images/logo.png" class="logo">
+        <ul id="sidemenu">
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <i class="fas fa-times" onclick="closemenu()"></i>
+        </ul>
+        <i class="fas fa-bars" onclick="openmenu()"></i>
+      </nav>
+      <hr>
+      <div class="header-text">
+        <br><br><br><br><br><br>
+        <h1>Nexus Software<span> Web Product Interfaces</span></h1>
+      </div>
+    </div>
+  </div>
+  <div id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+          <img src="images/nexus0404.jpeg" width="500" height="500">
+        </div>
+        <div class="about-col-2">
+          <h1 class="sub-title">About</h1><hr><br><br>
+          <p>
+            Web services are applications that make their functionalities accessible via the Internet. This accessibility enables nearly any application to either provide or utilize services capable of executing various tasks. For instance, a web service might handle tasks such as validating a customer's address.
+            <p>Web services leverage technologies like HTTP, initially developed for human-to-machine interactions, to transmit machine-readable formats like XML and JSON. The diversity of programming languages across software necessitates a language-independent data exchange method. XML tags, widely interpretable across software, make XML or JSON the preferred formats for data exchange in Web services.
+
+              In many organizations, multiple software systems are employed for management. These systems often require data exchange, facilitated by Web services, enabling communication over the Internet. The requesting software is termed the service requester, while the system processing the request and providing data is the service provider.
+              
+              Nexus Software offers intuitive interfaces, fostering a user-friendly environment. Simplified web interfaces, prioritizing usability, significantly enhance the user experience (UX), boosting customer satisfaction and ensuring successful task completion with each website visit.
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div id="portfolio">
+    <div class="container">
+      <h1 class="sub-title">My Services</h1><hr><br>
+      <div class="work-list">
+        <div class="work">
+          <img src="images/nexusrepository.png">
+          <div class="layer">
+            <h3>  Nexus Product Interface-1</h3>
+            
+          </div>
+        </div>
+        <div class="work">
+          <img src="images/resnexus.avif">
+          <div class="layer">
+            <h3> Nexus Product Interface-2</h3>
+            
+          </div>
+        </div>
+        <div class="work">
+          <img src="images/sonatype_the_platform_image.png">
+          <div class="layer">
+            <h3>  Nexus Product Interface-3</h3>
+            
+          </div>
+        </div>
+
+      </div>
+    
+
+    </div>
+  <div id="contact">
+    <div class="container">
+     <div class="row">
+       <div class="contact-left">
+        <h1 class="sub-title">Contact Me</h1><hr><br>
+        <p><i class="fa-regular fa-envelope"></i>contact.nexus@gmail.com</p>
+        <p> <i class="fas fa-phone-square-alt"></i>+91 08080808080</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.twitter.com/"><i class="fab fa-twitter-square"></i></a>
+          <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+       </div>
+       <div class="contact-right">
+        <form name="submit-to-google-sheet">
+          <input type="text" name="Name" placeholder="Your name" required>
+          <input type="email" name="Email" placeholder="Your email" required>
+          <textarea name="Message" rows="6" placeholder="Your message" ></textarea>
+          <button type="submit" class="btn btn2">Submit</button>
+        </form>
+        <span id="msg"></span>
+       </div>
+    </div>
+    </div>
+    <div class="copyright"><i class="fas fa-heart"></i>Embrace a deep enthusiasm for your tasks and responsibilities.<i class="fas fa-heart"></i></div>
+  </div>
+  <script>
+    var tablinks=document.getElementsByClassName("tab-links");
+    var tabcontents=document.getElementsByClassName("tab-contents"); 
+    function opentab(tabname){
+      for(tablink of tablinks){
+        tablink.classList.remove("active-link");
+      }
+      for(tabcontent of tabcontents){
+        tabcontent.classList.remove("active-tab");
+      }
+      event.currentTarget.classList.add("active-link");
+      document.getElementById(tabname).classList.add("active-tab");
+    } 
+  </script>
+  <script>
+    var sidemeu=document.getElementById("sidemenu");
+    function openmenu()
+    {
+      sidemeu.style.right="0";
+    }
+    function closemenu()
+    {
+      sidemeu.style.right="-200px";
+    }
+  </script>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzYS0Ds_2fctJhs05zxYu6K-1jbUChTqVIuL_vd0DRHeeOkTwoHRAy9UDmQMtCYwp2g/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg=document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {msg.innerHTML="Message sent successfully" ;setTimeout(function(){msg.innerHTML=""},5000);form.reset()})
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+
+</html>
